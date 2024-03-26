@@ -1,7 +1,6 @@
 'use client'
 
 import { Fragment, useEffect, useMemo } from 'react'
-import { Balancer } from 'react-wrap-balancer'
 import Link from 'next/link'
 import type { Image } from '@mx-space/api-client'
 import type { PropsWithChildren } from 'react'
@@ -57,7 +56,7 @@ export const MarkdownImageRecordProviderInternal = (
 export const PageSubTitle = () => {
   const subtitle = useCurrentPageDataSelector((data) => data?.subtitle)
   return (
-    <p className="text-center text-lg text-gray-600/70 lg:text-left dark:text-neutral-400">
+    <p className="text-center text-lg text-gray-600/70 dark:text-neutral-400 lg:text-left">
       {subtitle}
     </p>
   )
@@ -67,9 +66,7 @@ export const PageTitle = () => {
   const id = useCurrentPageDataSelector((data) => data?.id)
   return (
     <>
-      <h1 className="text-center lg:text-left">
-        <Balancer>{title}</Balancer>
-      </h1>
+      <h1 className="text-balance text-center lg:text-left">{title}</h1>
       <GoToAdminEditingButton
         id={id!}
         type="pages"
