@@ -28,7 +28,7 @@
 
 ## :wrench: 技术栈
 
-- NextJS 13 (App Router)
+- NextJS (App Router)
 - Jotai
 - Framer motion
 - Radix UI
@@ -70,30 +70,31 @@
 
 [看这里](https://mx-space.js.org/themes/shiro).
 
-## :whale: Docker 部署
+## :whale: 运行
 
-### :books: docker-compose
+### :hammer: 通过预构建运行
 
-1. change the args inside `docker-compose.yml`
+首先在 `https://github.com/Innei/Shiro/releases` 中下载预构建好的 `release.zip`。然后解压它。
 
-2. run command
-
-```bash
-    docker-compose up -d
+```sh
+cd standalone
+vim .env # 修改你的 ENV 变量
+export PORT=2323
+node server.js
 ```
 
-### :package: docker run
+### :books: 推荐使用 Docker Compose
 
-```bash
-docker build \
- --build-arg BASE_URL=REPLACE_WITH_YOUR_BASE_URL \
- --build-arg NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=REPLACE_WITH_YOUR_PUBLISHABLE_KEY \
- --build-arg CLERK_SECRET_KEY=REPLACE_WITH_YOUR_SECRET_KEY \
- -t shiro . --load
-```
+```sh
+mkdir shiro
+cd shiro
+wget https://raw.githubusercontent.com/Innei/Shiro/main/docker-compose.yml
+wget https://raw.githubusercontent.com/Innei/Shiro/main/.env.template .env
 
-```bash
-docker run --name shiro -d -p 2323:2323 shiro
+vim .env # 修改你的 ENV 变量
+docker compose up -d
+
+docker compose pull # 后续更新镜像
 ```
 
 ## Markdown 扩展语法
