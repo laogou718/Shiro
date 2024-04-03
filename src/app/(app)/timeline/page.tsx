@@ -14,8 +14,9 @@ import { NormalContainer } from '~/components/layout/container/Normal'
 import { PeekLink } from '~/components/modules/peek/PeekLink'
 import { TimelineProgress } from '~/components/modules/timeline/TimelineProgress'
 import { Divider } from '~/components/ui/divider'
+import { BackToTopFAB } from '~/components/ui/fab'
 import { TimelineList } from '~/components/ui/list/TimelineList'
-import { BottomToUpSoftScaleTransitionView } from '~/components/ui/transition/BottomToUpSoftScaleTransitionView'
+import { BottomToUpSoftScaleTransitionView } from '~/components/ui/transition'
 import { apiClient } from '~/lib/request'
 import { springScrollToElement } from '~/lib/scroller'
 
@@ -210,6 +211,7 @@ export default function TimelinePage() {
           )
         })}
       </main>
+      <BackToTopFAB />
     </NormalContainer>
   )
 }
